@@ -35,3 +35,7 @@ vim.bo.autoindent = true
 vim.o.expandtab = true
 vim.bo.expandtab = true
 vim.o.ignorecase = true
+vim.cmd[[
+set autochdir
+set mmp=5000
+]]

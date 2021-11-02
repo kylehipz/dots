@@ -181,6 +181,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/kyle/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
+  ["vim-better-comments"] = {
+    loaded = true,
+    path = "/home/kyle/.local/share/nvim/site/pack/packer/start/vim-better-comments"
+  },
   ["vim-floaterm"] = {
     loaded = true,
     path = "/home/kyle/.local/share/nvim/site/pack/packer/start/vim-floaterm"
