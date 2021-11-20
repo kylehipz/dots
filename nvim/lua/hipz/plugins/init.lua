@@ -9,6 +9,9 @@ return require('packer').startup(function()
     'neovim/nvim-lspconfig',
     requires = 'onsails/lspkind-nvim'
   }
+  use 'terrortylor/nvim-comment'
+  -- use 'chemzqm/vim-jsx-improve'
+  use 'maxmellon/vim-jsx-pretty'
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ":TSUpdate"
