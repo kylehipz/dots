@@ -16,7 +16,9 @@ local mappings = {
   p = {":Telescope git_files<cr>", "Telescope Git Files"},
   l = {":Telescope live_grep<cr>", "Telescope Live Grep"},
   d = {":lua require('telescope.builtin').find_files({ cwd = '~/.config/nvim' })<cr>", "Neovim Config"},
-  g = {":LazyGit<cr>", "Lazy Git"}
+  gg = {":G<cr>", "Git status"},
+  gc = {":G commit<cr>", "Git commit"},
+  gp = {":G push<cr>", "Git push"}
 }
 
 local opts = {

@@ -9,8 +9,9 @@ map('n', '<C-l>', '<C-w>l', {noremap = true, silent = false})
 
 -- Esc
 map('i', 'qw', '<ESC>', {noremap = true, silent = false})
+map('i', 'qq', '<ESC>q<cr>', {noremap = true, silent = false})
 
-map('i', 'qq', '<ESC>q', {noremap = true, silent = false})
-
+-- Commenter
 map('n', '//', ':CommentToggle<cr>', {noremap = true, silent = false})
 map('v', '//', ':CommentToggle<cr>', {noremap = true, silent = false})
+

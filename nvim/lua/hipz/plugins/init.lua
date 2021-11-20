@@ -63,6 +63,6 @@ return require('packer').startup(function()
   use 'mhinz/vim-signify'
   use 'tpope/vim-rhubarb'
   use 'junegunn/gv.vim'
-  use 'kdheepak/lazygit.nvim'
+  -- use 'kdheepak/lazygit.nvim'
 
 end)
