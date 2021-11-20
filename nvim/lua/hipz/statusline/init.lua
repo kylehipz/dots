@@ -1,6 +1,6 @@
 require('lualine').setup({
   options = {
-    theme = 'gruvbox',
+    theme = 'rose-pine',
     section_separators = '',
     component_separators = ''
   }

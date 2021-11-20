@@ -4,13 +4,13 @@ return require('packer').startup(function()
   -- Colorscheme
   use 'shaunsingh/nord.nvim'
   use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
+  use 'rose-pine/neovim'
   -- Programming
   use {
     'neovim/nvim-lspconfig',
     requires = 'onsails/lspkind-nvim'
   }
   use 'terrortylor/nvim-comment'
-  -- use 'chemzqm/vim-jsx-improve'
   use 'maxmellon/vim-jsx-pretty'
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -27,6 +27,7 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/vim-vsnip'
   use 'jbgutierrez/vim-better-comments'
+  use 'lukas-reineke/indent-blankline.nvim'
   -- Statusline
   use {
     'nvim-lualine/lualine.nvim',
