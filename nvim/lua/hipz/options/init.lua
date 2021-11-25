@@ -38,5 +38,3 @@ vim.o.ignorecase = true
 vim.cmd[[
 set mmp=5000
 ]]
-vim.opt.list = true
-vim.opt.listchars:append("eol:↴")
