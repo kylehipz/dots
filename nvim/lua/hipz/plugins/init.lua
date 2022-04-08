@@ -28,6 +28,7 @@ return require('packer').startup(function()
   use 'hrsh7th/vim-vsnip'
   use 'jbgutierrez/vim-better-comments'
   use 'lukas-reineke/indent-blankline.nvim'
+  use 'lukas-reineke/format.nvim'
   -- Statusline
   use {
     'nvim-lualine/lualine.nvim',

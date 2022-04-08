@@ -99,6 +99,11 @@ _G.packer_plugins = {
     path = "/home/kyle/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
+  ["format.nvim"] = {
+    loaded = true,
+    path = "/home/kyle/.local/share/nvim/site/pack/packer/start/format.nvim",
+    url = "https://github.com/lukas-reineke/format.nvim"
+  },
   ["gruvbox.nvim"] = {
     loaded = true,
     path = "/home/kyle/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
@@ -113,11 +118,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/kyle/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
-  },
-  ["lazygit.nvim"] = {
-    loaded = true,
-    path = "/home/kyle/.local/share/nvim/site/pack/packer/start/lazygit.nvim",
-    url = "https://github.com/kdheepak/lazygit.nvim"
   },
   ["lspkind-nvim"] = {
     loaded = true,

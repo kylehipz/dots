@@ -18,7 +18,9 @@ local mappings = {
   d = {":lua require('telescope.builtin').find_files({ cwd = '~/.config/nvim' })<cr>", "Neovim Config"},
   gg = {":G<cr>", "Git status"},
   gc = {":G commit<cr>", "Git commit"},
-  gp = {":G push<cr>", "Git push"}
+  gp = {":G push<cr>", "Git push"},
+  gj = {":diffget //2<cr>", "Get left side"},
+  gk = {":diffget //3<cr>", "Get right side"}
 }
 
 local opts = {
