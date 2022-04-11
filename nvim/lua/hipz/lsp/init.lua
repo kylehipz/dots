@@ -58,7 +58,8 @@ require'lspconfig'.sumneko_lua.setup {
 local map = vim.api.nvim_set_keymap
 map('n', 'gd', ':lua vim.lsp.buf.definition()<cr>', {noremap = true, silent = true})
 map('n', 'gD', ':lua vim.lsp.buf.declaration()<cr>', {noremap = true, silent = true})
-map('n', 'gr', ':lua vim.lsp.buf.references()<cr>', {noremap = true, silent = true})
+map('n', 'gr', ':Telescope lsp_references<cr>', {noremap = true, silent = true})
+-- map('n', 'gr', ':lua vim.lsp.buf.references()<cr>', {noremap = true, silent = true})
 map('n', 'gi', ':lua vim.lsp.buf.implementation()<cr>', {noremap = true, silent = true})
 map('n', 'K', ':lua vim.lsp.buf.hover()<cr>', {noremap = true, silent = true})
 map('n', '<C-k>', ':lua vim.lsp.buf.signature_help()<cr>', {noremap = true, silent = true})
@@ -75,4 +76,5 @@ end
 -- terraform
 -- autocmd BufWritePre *.tf lua vim.lsp.buf.formatting_sync(nil, 100)
 -- autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)
+-- autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
 -- autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 100)

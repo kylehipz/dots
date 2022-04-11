@@ -28,7 +28,7 @@ return require('packer').startup(function()
   use 'hrsh7th/vim-vsnip'
   use 'jbgutierrez/vim-better-comments'
   use 'lukas-reineke/indent-blankline.nvim'
-  use 'lukas-reineke/format.nvim'
+  use 'lukas-reineke/lsp-format.nvim'
   -- Statusline
   use {
     'nvim-lualine/lualine.nvim',
@@ -61,7 +61,8 @@ return require('packer').startup(function()
   use 'voldikss/vim-floaterm'
   -- Git
   use 'tpope/vim-fugitive'
-  use 'mhinz/vim-signify'
+  -- use 'mhinz/vim-signify'
+  use 'lewis6991/gitsigns.nvim'
   use 'tpope/vim-rhubarb'
   use 'junegunn/gv.vim'
   -- use 'kdheepak/lazygit.nvim'

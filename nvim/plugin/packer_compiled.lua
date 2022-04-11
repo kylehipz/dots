@@ -57,7 +57,7 @@ end
 time([[Luarocks path setup]], false)
 time([[try_loadstring definition]], true)
 local function try_loadstring(s, component, name)
-  local success, result = pcall(loadstring(s))
+  local success, result = pcall(loadstring(s), name, _G.packer_plugins[name])
   if not success then
     vim.schedule(function()
       vim.api.nvim_notify('packer.nvim: Error running ' .. component .. ' for ' .. name .. ': ' .. result, vim.log.levels.ERROR, {})
@@ -99,10 +99,10 @@ _G.packer_plugins = {
     path = "/home/kyle/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
-  ["format.nvim"] = {
+  ["gitsigns.nvim"] = {
     loaded = true,
-    path = "/home/kyle/.local/share/nvim/site/pack/packer/start/format.nvim",
-    url = "https://github.com/lukas-reineke/format.nvim"
+    path = "/home/kyle/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
   },
   ["gruvbox.nvim"] = {
     loaded = true,
@@ -118,6 +118,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/kyle/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+  },
+  ["lsp-format.nvim"] = {
+    loaded = true,
+    path = "/home/kyle/.local/share/nvim/site/pack/packer/start/lsp-format.nvim",
+    url = "https://github.com/lukas-reineke/lsp-format.nvim"
   },
   ["lspkind-nvim"] = {
     loaded = true,
@@ -249,11 +254,6 @@ _G.packer_plugins = {
     path = "/home/kyle/.local/share/nvim/site/pack/packer/start/vim-rhubarb",
     url = "https://github.com/tpope/vim-rhubarb"
   },
-  ["vim-signify"] = {
-    loaded = true,
-    path = "/home/kyle/.local/share/nvim/site/pack/packer/start/vim-signify",
-    url = "https://github.com/mhinz/vim-signify"
-  },
   ["vim-vsnip"] = {
     loaded = true,
     path = "/home/kyle/.local/share/nvim/site/pack/packer/start/vim-vsnip",
@@ -272,5 +272,6 @@ if should_profile then save_profiles() end
 end)
 
 if not no_errors then
+  error_msg = error_msg:gsub('"', '\\"')
   vim.api.nvim_command('echohl ErrorMsg | echom "Error in packer_compiled: '..error_msg..'" | echom "Please check your config for correctness" | echohl None')
 end
