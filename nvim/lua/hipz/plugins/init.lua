@@ -32,6 +32,12 @@ return require('packer').startup(function()
   use 'jose-elias-alvarez/null-ls.nvim'
   -- Statusline
   use {
+    'folke/twilight.nvim',
+    config = function()
+      require("twilight").setup {}
+    end
+  }
+  use {
     'nvim-lualine/lualine.nvim',
     requires = {
       'kyazdani42/nvim-web-devicons',

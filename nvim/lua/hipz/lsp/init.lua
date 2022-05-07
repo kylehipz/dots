@@ -63,8 +63,8 @@ map('n', 'gr', ':Telescope lsp_references<cr>', {noremap = true, silent = true})
 map('n', 'gi', ':lua vim.lsp.buf.implementation()<cr>', {noremap = true, silent = true})
 map('n', 'K', ':lua vim.lsp.buf.hover()<cr>', {noremap = true, silent = true})
 map('n', '<C-k>', ':lua vim.lsp.buf.signature_help()<cr>', {noremap = true, silent = true})
-map('n', '<C-[>', ':lua vim.lsp.diagnostic.goto_next()<cr>', {noremap = true, silent = true})
-map('n', '<C-]>', ':lua vim.lsp.diagnostic.goto_prev()<cr>', {noremap = true, silent = true})
+map('n', '<C-P>', ':lua vim.diagnostic.goto_next()<cr>', {noremap = true, silent = true})
+map('n', '<C-]>', ':lua vim.diagnostic.goto_prev()<cr>', {noremap = true, silent = true})
 
 local signs = { Error = " ", Warning = " ", Hint = " ", Information = " " }
 

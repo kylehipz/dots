@@ -79,10 +79,24 @@ cmp.setup({
     }),
     ['<Tab>'] = cmp.mapping.confirm({ select = true }),
     ['<C-j>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
+      if (cmp.visible()) then
         cmp.select_next_item()
-      elseif vim.fn["vsnip#available"](1) == 1 then
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+    ['<C-k>'] = cmp.mapping(function(fallback)
+      if (cmp.visible()) then
+        cmp.select_prev_item()
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+    ['<Tab>'] = cmp.mapping(function(fallback)
+      if vim.fn["vsnip#available"](1) == 1 then
         feedkey("<Plug>(vsnip-expand-or-jump)", "")
+      elseif cmp.visible() then
+        cmp.select_next_item()
       elseif has_words_before() then
         cmp.complete()
       else
@@ -90,11 +104,11 @@ cmp.setup({
       end
     end, { "i", "s" }),
 
-    ['<C-k>'] = cmp.mapping(function()
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+    ['<S-Tab>'] = cmp.mapping(function()
+      if vim.fn["vsnip#jumpable"](-1) == 1 then
         feedkey("<Plug>(vsnip-jump-prev)", "")
+      elseif cmp.visible() then
+        cmp.select_prev_item()
       end
     end, { "i", "s" }),
   },
@@ -134,5 +148,6 @@ require'lspconfig'.tsserver.setup {
   capabilities = capabilities,
   on_attach = function(client)
     client.resolved_capabilities.document_formatting = false
+    vim.lsp.callbacks["textDocument/publishDiagnostics"] = function() end
   end,
 }
