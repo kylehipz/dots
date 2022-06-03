@@ -16,6 +16,18 @@ return require('packer').startup(function()
     'nvim-treesitter/nvim-treesitter',
     run = ":TSUpdate"
   }
+  use {
+    'mattn/emmet-vim',
+    config = function ()
+      vim.g.user_emmet_leader_key = ','
+
+      vim.g.user_emmet_settings = {
+        indent_blockelement = 1
+      }
+    end
+  }
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
+  use 'nvim-treesitter/playground'
   use 'windwp/nvim-ts-autotag'
   use 'windwp/nvim-autopairs'
   use 'p00f/nvim-ts-rainbow'
@@ -32,10 +44,7 @@ return require('packer').startup(function()
   use 'jose-elias-alvarez/null-ls.nvim'
   -- Statusline
   use {
-    'folke/twilight.nvim',
-    config = function()
-      require("twilight").setup {}
-    end
+    'folke/twilight.nvim'
   }
   use {
     'nvim-lualine/lualine.nvim',
