@@ -17,8 +17,10 @@ null_ls.setup({
     -- you can reuse a shared lspconfig on_attach callback here
     debug = false,
     sources = {
-      formatting.standardjs,
-      diagnostics.standardjs
+      -- formatting.standardjs,
+      -- diagnostics.standardjs
+      formatting.eslint,
+      diagnostics.eslint
     },
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
@@ -28,7 +30,7 @@ null_ls.setup({
                 buffer = bufnr,
                 callback = function()
                     -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-                    vim.lsp.buf.formatting_seq_sync()
+                    vim.lsp.buf.formatting()
                 end,
             })
         end

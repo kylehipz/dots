@@ -54,6 +54,10 @@ return require('packer').startup(function()
     }
   }
   use {
+    "SmiteshP/nvim-gps",
+    requires = "nvim-treesitter/nvim-treesitter"
+  }
+  use {
     'akinsho/bufferline.nvim',
     requires = 'kyazdani42/nvim-web-devicons'
   }
@@ -62,6 +66,8 @@ return require('packer').startup(function()
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons'
   }
+  use { "nvim-telescope/telescope-file-browser.nvim" }
+  use 'mfussenegger/nvim-dap'
   use {
     'nvim-telescope/telescope.nvim',
     requires = {
@@ -77,6 +83,7 @@ return require('packer').startup(function()
   use 'voldikss/vim-floaterm'
   -- Git
   use 'tpope/vim-fugitive'
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
   -- use 'mhinz/vim-signify'
   use 'lewis6991/gitsigns.nvim'
   use 'tpope/vim-rhubarb'

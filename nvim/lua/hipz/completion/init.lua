@@ -148,6 +148,6 @@ require'lspconfig'.tsserver.setup {
   capabilities = capabilities,
   on_attach = function(client)
     client.resolved_capabilities.document_formatting = false
-    vim.lsp.callbacks["textDocument/publishDiagnostics"] = function() end
+    vim.lsp.handlers["textDocument/publishDiagnostics"] = function() end
   end,
 }

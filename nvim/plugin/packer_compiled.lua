@@ -99,6 +99,11 @@ _G.packer_plugins = {
     path = "/home/kyle/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
+  ["diffview.nvim"] = {
+    loaded = true,
+    path = "/home/kyle/.local/share/nvim/site/pack/packer/start/diffview.nvim",
+    url = "https://github.com/sindrets/diffview.nvim"
+  },
   ["emmet-vim"] = {
     config = { "\27LJ\2\nv\0\0\2\0\6\0\t6\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\0\0009\0\1\0005\1\5\0=\1\4\0K\0\1\0\1\0\1\24indent_blockelement\3\1\24user_emmet_settings\6,\26user_emmet_leader_key\6g\bvim\0" },
     loaded = true,
@@ -175,6 +180,16 @@ _G.packer_plugins = {
     path = "/home/kyle/.local/share/nvim/site/pack/packer/start/nvim-comment",
     url = "https://github.com/terrortylor/nvim-comment"
   },
+  ["nvim-dap"] = {
+    loaded = true,
+    path = "/home/kyle/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
+  },
+  ["nvim-gps"] = {
+    loaded = true,
+    path = "/home/kyle/.local/share/nvim/site/pack/packer/start/nvim-gps",
+    url = "https://github.com/SmiteshP/nvim-gps"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/kyle/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -234,6 +249,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/kyle/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
+  },
+  ["telescope-file-browser.nvim"] = {
+    loaded = true,
+    path = "/home/kyle/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
+    url = "https://github.com/nvim-telescope/telescope-file-browser.nvim"
   },
   ["telescope-fzy-native.nvim"] = {
     loaded = true,
