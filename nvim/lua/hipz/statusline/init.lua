@@ -4,7 +4,7 @@ gps.setup()
 
 require('lualine').setup({
   options = {
-    theme = 'powerline_dark',
+    theme = 'vscode',
   },
   sections = {
     lualine_c = {

@@ -3,6 +3,7 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
   -- Colorscheme
   use 'shaunsingh/nord.nvim'
+  use 'Mofiqul/vscode.nvim'
   use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
   use 'rose-pine/neovim'
   -- Programming
