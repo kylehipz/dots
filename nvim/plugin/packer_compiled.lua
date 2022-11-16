@@ -145,6 +145,12 @@ _G.packer_plugins = {
     path = "/home/kyle/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
     url = "https://github.com/onsails/lspkind-nvim"
   },
+  ["lspsaga.nvim"] = {
+    config = { "\27LJ\2\2�\6\0\0\4\0\15\0\0196\0\0\0'\1\1\0B\0\2\0029\1\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0=\3\t\0025\3\n\0=\3\v\0025\3\f\0=\3\r\0024\3\0\0=\3\14\2B\1\2\1K\0\1\0\24server_filetype_map\25rename_output_qflist\1\0\2\21auto_open_qflist\1\venable\1\23rename_action_keys\1\0\2\tquit\n<C-c>\texec\t<CR>\21code_action_keys\1\0\2\tquit\6q\texec\t<CR>\23finder_action_keys\1\0\6\tquit\6q\16scroll_down\n<C-f>\vvsplit\6s\topen\6o\14scroll_up\n<C-b>\nsplit\6i\23code_action_prompt\1\0\4\18sign_priority\3(\17virtual_text\2\tsign\2\venable\2\1\0\17\28definition_preview_icon\n  \ndebug\1\17border_style\vsingle\15error_sign\b\29use_saga_diagnostic_sign\2\14hint_sign\b\27diagnostic_header_icon\v   \25rename_prompt_prefix\b➤\30diagnostic_message_format\n%m %c\15infor_sign\b\29diagnostic_prefix_format\t%d. \26finder_reference_icon\n  \14warn_sign\b\22max_preview_lines\3\n\21code_action_icon\t \21highlight_prefix\1\27finder_definition_icon\n  \nsetup\flspsaga\frequire\0" },
+    loaded = true,
+    path = "/home/kyle/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
+    url = "https://github.com/kkharji/lspsaga.nvim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/kyle/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -328,6 +334,10 @@ time([[Defining packer_plugins]], false)
 time([[Config for emmet-vim]], true)
 try_loadstring("\27LJ\2\2v\0\0\2\0\6\0\t6\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\0\0009\0\1\0005\1\5\0=\1\4\0K\0\1\0\1\0\1\24indent_blockelement\3\1\24user_emmet_settings\6,\26user_emmet_leader_key\6g\bvim\0", "config", "emmet-vim")
 time([[Config for emmet-vim]], false)
+-- Config for: lspsaga.nvim
+time([[Config for lspsaga.nvim]], true)
+try_loadstring("\27LJ\2\2�\6\0\0\4\0\15\0\0196\0\0\0'\1\1\0B\0\2\0029\1\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0=\3\t\0025\3\n\0=\3\v\0025\3\f\0=\3\r\0024\3\0\0=\3\14\2B\1\2\1K\0\1\0\24server_filetype_map\25rename_output_qflist\1\0\2\21auto_open_qflist\1\venable\1\23rename_action_keys\1\0\2\tquit\n<C-c>\texec\t<CR>\21code_action_keys\1\0\2\tquit\6q\texec\t<CR>\23finder_action_keys\1\0\6\tquit\6q\16scroll_down\n<C-f>\vvsplit\6s\topen\6o\14scroll_up\n<C-b>\nsplit\6i\23code_action_prompt\1\0\4\18sign_priority\3(\17virtual_text\2\tsign\2\venable\2\1\0\17\28definition_preview_icon\n  \ndebug\1\17border_style\vsingle\15error_sign\b\29use_saga_diagnostic_sign\2\14hint_sign\b\27diagnostic_header_icon\v   \25rename_prompt_prefix\b➤\30diagnostic_message_format\n%m %c\15infor_sign\b\29diagnostic_prefix_format\t%d. \26finder_reference_icon\n  \14warn_sign\b\22max_preview_lines\3\n\21code_action_icon\t \21highlight_prefix\1\27finder_definition_icon\n  \nsetup\flspsaga\frequire\0", "config", "lspsaga.nvim")
+time([[Config for lspsaga.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
