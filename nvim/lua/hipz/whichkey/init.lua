@@ -25,7 +25,8 @@ local mappings = {
   gp = {":G push<cr>", "Git push"},
   gP = {":G pull<cr>", "Git pull"},
   gj = {":diffget //2<cr>", "Get left side"},
-  gk = {":diffget //3<cr>", "Get right side"}
+  gk = {":diffget //3<cr>", "Get right side"},
+  gr = {":lua vim.lsp.buf.rename()<cr>", "Rename Variable"}
 }
 
 local opts = {
