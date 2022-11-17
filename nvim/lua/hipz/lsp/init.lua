@@ -66,8 +66,8 @@ local map = vim.api.nvim_set_keymap
 -- map('n', '<C-P>', ':lua vim.diagnostic.goto_next()<cr>', {noremap = true, silent = true})
 -- map('n', '<C-]>', ':lua vim.diagnostic.goto_prev()<cr>', {noremap = true, silent = true})
 
-map('n', 'gd', ':Lspsaga preview_definition<cr>', {noremap = true, silent = true})
-map('n', 'gD', ':lua vim.lsp.buf.declaration()<cr>', {noremap = true, silent = true})
+map('n', 'gd', ':lua vim.lsp.buf.definition()<cr>', {noremap = true, silent = true})
+map('n', 'gD', ':Lspsaga preview_definition<cr>', {noremap = true, silent = true})
 map('n', 'gr', ':Telescope lsp_references<cr>', {noremap = true, silent = true})
 -- map('n', 'gr', ':lua vim.lsp.buf.references()<cr>', {noremap = true, silent = true})
 map('n', 'gi', ':lua vim.lsp.buf.implementation()<cr>', {noremap = true, silent = true})

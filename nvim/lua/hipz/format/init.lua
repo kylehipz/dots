@@ -6,6 +6,7 @@
 local null_ls = require('null-ls')
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
+local code_actions = null_ls.builtins.code_actions
 
 -- null_ls.setup({
 --   debug = false,
@@ -19,8 +20,9 @@ null_ls.setup({
     sources = {
       -- formatting.standardjs,
       -- diagnostics.standardjs
-      formatting.eslint,
-      diagnostics.eslint
+      formatting.prettier,
+      diagnostics.eslint,
+      code_actions.eslint
     },
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
