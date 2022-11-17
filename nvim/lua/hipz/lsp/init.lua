@@ -74,7 +74,8 @@ map('n', 'gi', ':lua vim.lsp.buf.implementation()<cr>', {noremap = true, silent 
 map('n', 'K', ':Lspsaga hover_doc<cr>', {noremap = true, silent = true})
 map('n', '<C-k>', ':lua vim.lsp.buf.signature_help()<cr>', {noremap = true, silent = true})
 map('n', '<C-P>', ':Lspsaga diagnostic_jump_next<cr>', {noremap = true, silent = true})
-map('n', '<C-]>', ':Lspsaga diagnostic_prev_next<cr>', {noremap = true, silent = true})
+map('n', '<C-[>', ':Gitsigns next_hunk<cr>', {noremap = true, silent = true})
+map('n', '<C-]>', ':Gitsigns prev_hunk<cr>', {noremap = true, silent = true})
 
 local signs = { Error = " ", Warning = " ", Hint = " ", Information = " " }
 
