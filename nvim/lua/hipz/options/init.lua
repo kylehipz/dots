@@ -38,3 +38,4 @@ vim.o.ignorecase = true
 vim.cmd[[
 set mmp=5000
 ]]
+require'colorizer'.setup()

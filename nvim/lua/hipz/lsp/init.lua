@@ -1,14 +1,19 @@
 require'lspconfig'.gopls.setup{}
--- require'lspconfig'.tsserver.setup{}
+require'lspconfig'.sqlls.setup{}
 require'lspconfig'.dockerls.setup{}
 require'lspconfig'.yamlls.setup{}
 require'lspconfig'.terraformls.setup{}
 require'lspconfig'.clangd.setup{}
+require'lspconfig'.tailwindcss.setup{}
+require'lspconfig'.jsonls.setup{}
+require'lspconfig'.sqlls.setup{}
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 require'lspconfig'.cssls.setup{
   capabilities = capabilities
 }
+
+require'mason'.setup{}
 
 -- Lua lsp config
 local system_name
@@ -21,15 +26,8 @@ elseif vim.fn.has('win32') == 1 then
 else
   print("Unsupported system for sumneko")
 end
-local sumneko_root_path = '/home/kyle/projects/lua-language-server'
-local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
-
-local runtime_path = vim.split(package.path, ';')
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
 
 require'lspconfig'.sumneko_lua.setup {
-  cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
   settings = {
     Lua = {
       runtime = {
@@ -71,6 +69,7 @@ map('n', 'gD', ':Lspsaga preview_definition<cr>', {noremap = true, silent = true
 map('n', 'gr', ':Telescope lsp_references<cr>', {noremap = true, silent = true})
 -- map('n', 'gr', ':lua vim.lsp.buf.references()<cr>', {noremap = true, silent = true})
 map('n', 'gi', ':lua vim.lsp.buf.implementation()<cr>', {noremap = true, silent = true})
+map('n', 'gI', ':Lspsaga implement<cr>', {noremap = true, silent = true})
 map('n', 'K', ':Lspsaga hover_doc<cr>', {noremap = true, silent = true})
 map('n', '<C-k>', ':lua vim.lsp.buf.signature_help()<cr>', {noremap = true, silent = true})
 map('n', '<C-P>', ':Lspsaga diagnostic_jump_next<cr>', {noremap = true, silent = true})

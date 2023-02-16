@@ -65,8 +65,10 @@ return require('packer').startup(function()
     'neovim/nvim-lspconfig',
     requires = 'onsails/lspkind-nvim'
   }
+  use { "williamboman/mason.nvim" }
   use 'terrortylor/nvim-comment'
-  use 'maxmellon/vim-jsx-pretty'
+  use 'norcalli/nvim-colorizer.lua'
+  use {'maxmellon/vim-jsx-pretty'}
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ":TSUpdate"
@@ -102,6 +104,30 @@ return require('packer').startup(function()
     'folke/twilight.nvim'
   }
   use {
+    'nvim-tree/nvim-web-devicons',
+    config = function()
+      require'nvim-web-devicons'.setup {
+       -- your personnal icons can go here (to override)
+       -- you can specify color or cterm_color instead of specifying both of them
+       -- DevIcon will be appended to `name`
+       override = {
+        zsh = {
+          icon = "",
+          color = "#428850",
+          cterm_color = "65",
+          name = "Zsh"
+        }
+       };
+       -- globally enable different highlight colors per icon (default to true)
+       -- if set to false all icons will have the default icon's color
+       color_icons = true;
+       -- globally enable default icons (default to false)
+       -- will get overriden by `get_icons` option
+       default = true;
+      }
+    end
+  }
+  use {
     'nvim-lualine/lualine.nvim',
     requires = {
       'kyazdani42/nvim-web-devicons',
@@ -126,8 +152,8 @@ return require('packer').startup(function()
   use {
     'nvim-telescope/telescope.nvim',
     requires = {
-      {'nvim-lua/popup.nvim'},                                 
-      {'nvim-lua/plenary.nvim'},                               
+      {'nvim-lua/popup.nvim'},
+      {'nvim-lua/plenary.nvim'},
       {'nvim-telescope/telescope-fzy-native.nvim', run="make"},
       {'nvim-telescope/telescope-symbols.nvim'}
     }
@@ -138,11 +164,16 @@ return require('packer').startup(function()
   use 'voldikss/vim-floaterm'
   -- Git
   use 'tpope/vim-fugitive'
-  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+  use 'APZelos/blamer.nvim'
   -- use 'mhinz/vim-signify'
   use 'lewis6991/gitsigns.nvim'
   use 'tpope/vim-rhubarb'
   use 'junegunn/gv.vim'
   -- use 'kdheepak/lazygit.nvim'
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  })
+  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
 end)

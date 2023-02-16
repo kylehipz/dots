@@ -4,7 +4,9 @@ gps.setup()
 
 require('lualine').setup({
   options = {
-    theme = 'auto',
+    theme = 'powerline_dark',
+    section_separators = { left = '▶' },
+    component_separators = { left = '▶' }
   },
   sections = {
     lualine_c = {
