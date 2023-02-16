@@ -18,11 +18,9 @@ null_ls.setup({
     -- you can reuse a shared lspconfig on_attach callback here
     debug = false,
     sources = {
-      formatting.standardjs,
-      diagnostics.standardjs
-      -- formatting.prettier,
-      -- diagnostics.eslint,
-      -- code_actions.eslint
+      formatting.prettier,
+      diagnostics.eslint,
+      code_actions.eslint
     },
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
