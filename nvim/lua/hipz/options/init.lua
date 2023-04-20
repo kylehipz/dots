@@ -37,5 +37,8 @@ vim.bo.expandtab = true
 vim.o.ignorecase = true
 vim.cmd[[
 set mmp=5000
+set fileformat=dos
 ]]
 require'colorizer'.setup()
+
+

@@ -1,5 +1,4 @@
 require'lspconfig'.gopls.setup{}
-require'lspconfig'.sqlls.setup{}
 require'lspconfig'.dockerls.setup{}
 require'lspconfig'.yamlls.setup{}
 require'lspconfig'.terraformls.setup{}

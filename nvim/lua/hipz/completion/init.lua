@@ -1,3 +1,30 @@
+-- Setup lspconfig.
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+require'lspconfig'.html.setup {
+  capabilities = capabilities
+}
+require'lspconfig'.tsserver.setup {
+  capabilities = capabilities
+}
+
+require'lspconfig'.eslint.setup {
+  root_dir = function(fname)
+    if fname:match('client/') then
+      return vim.fn.getcwd() .. '/client'
+    else
+      return vim.fn.getcwd() .. '/server'
+    end
+  end,
+  on_attach = function(client, bufnr)
+    vim.api.nvim_command("autocmd BufWritePre *.js,*.ts,*.jsx,*.tsx :EslintFixAll")
+  end,
+  settings = {
+    format = {
+      enable = true -- enable formatting support
+    }
+  }
+}
+
 -- Setup nvim-cmp.
 local cmp = require'cmp'
 local lspkind = require('lspkind')
@@ -139,15 +166,3 @@ cmp.setup.cmdline(':', {
   })
 })
 
--- Setup lspconfig.
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-require'lspconfig'.html.setup {
-  capabilities = capabilities
-}
-require'lspconfig'.tsserver.setup {
-  capabilities = capabilities,
-  on_attach = function(client)
-    client.server_capabilities.document_formatting = false
-    vim.lsp.handlers["textDocument/publishDiagnostics"] = function() end
-  end,
-}
