@@ -113,7 +113,7 @@ POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="white"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git node vi-mode sudo zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git node vi-mode sudo zsh-autosuggestions zsh-syntax-highlighting fzf-zsh-plugin)
 #alias ls="colorls"
 alias v="nvim"
 alias t="tmux"
@@ -139,7 +139,6 @@ export EDITOR='vim'
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 [ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_rsa_q
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
