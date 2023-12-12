@@ -18,4 +18,13 @@ M.dap_python = {
   }
 }
 
+M.git = {
+  n = {
+    ["<space>gg"] = {"<cmd> Git<cr>"},
+    ["<space>gc"] = {"<cmd> Git commit<cr>"},
+    ["<space>gp"] = {"<cmd> Git push<cr>"},
+    ["<space>gP"] = {"<cmd> Git pull<cr>"},
+  }
+}
+
 return M

@@ -271,8 +271,8 @@ M.telescope = {
     ["<leader>fz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
 
     -- git
-    ["<space>gcc"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
-    ["<space>gcb"] = { "<cmd> Telescope git_branches <CR>", "Git branches" },
+    ["<space>cc"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
+    ["<space>cb"] = { "<cmd> Telescope git_branches <CR>", "Git branches" },
     ["<leader>gt"] = { "<cmd> Telescope git_status <CR>", "Git status" },
 
     -- pick a hidden term

@@ -52,6 +52,7 @@ local plugins = {
         "mypy",
         "ruff",
         "pyright",
+        "gopls"
       },
     },
   },
@@ -72,6 +73,10 @@ local plugins = {
       'nvim-treesitter/nvim-treesitter', -- optional
       'nvim-tree/nvim-web-devicons'     -- optional
     }
+  },
+  {
+    "tpope/vim-fugitive",
+    ft = {"python", "go", "lua"},
   }
 }
 
