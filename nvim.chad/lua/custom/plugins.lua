@@ -76,7 +76,7 @@ local plugins = {
   },
   {
     "tpope/vim-fugitive",
-    ft = {"python", "go", "lua"},
+    ft = {"*"},
   }
 }
 
