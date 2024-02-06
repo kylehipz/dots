@@ -21,7 +21,8 @@ POWERLEVEL9K_VCS_GIT_BITBUCKET_ICON=' '
  #export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/kylehipz/.oh-my-zsh"
+# export ZSH="/home/kylehipz/.oh-my-zsh"
+export ZSH="/Users/Kyle/.oh-my-zsh/"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -158,7 +159,6 @@ alias pamv="php artisan make:view "
 alias lls="colorls"
 
 source $ZSH/oh-my-zsh.sh
-alias tm="nvim /home/kylehipz/.tmux.conf"
 
 #cd ~/Desktop
 #neofetch
@@ -208,23 +208,3 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export LD_LIBRARY_PATH=/usr/lib/cuda/lib64:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/lib/cuda/include:$LD_LIBRARY_PATH
 
-export PATH=$PATH:/usr/local/go/bin
-export GOPATH=/home/kylehipz/go
-export PATH=$PATH:$GOPATH/bin
-export GOBIN=/home/kylehipz/go/bin
-export GO111MODULE=auto
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-export PATH="$PATH:/home/kylehipz/nvim-linux64/bin"
-
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/bin/terraform terraform
-
-# alias python=python3
-
-# pnpm
-export PNPM_HOME="/home/kylehipz/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end

@@ -65,7 +65,7 @@ local plugins = {
   },
   {
     'nvimdev/lspsaga.nvim',
-    ft = {"python", "go"},
+    ft = {"python", "go", "lua"},
     config = function()
         require('lspsaga').setup({})
     end,
