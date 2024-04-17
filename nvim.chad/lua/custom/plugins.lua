@@ -1,11 +1,31 @@
 local plugins = {
   {
     "rcarriga/nvim-dap-ui",
-    dependencies = "mfussenegger/nvim-dap",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "theHamsta/nvim-dap-virtual-text"
+    },
     config = function()
       local dap = require("dap")
       local dapui = require("dapui")
-      dapui.setup()
+      local virtual_text = require("nvim-dap-virtual-text")
+
+      dapui.setup({
+        layouts = {
+          {
+            elements = {
+              {
+                id = "repl",
+                size = 1.0
+              }
+            },
+            position = "bottom",
+            size = 15
+          }
+        },
+      })
+      virtual_text.setup()
+
       dap.listeners.after.event_initialized["dapui_config"] = function()
         dapui.open()
       end
@@ -22,6 +42,9 @@ local plugins = {
     config = function(_, opts)
       require("core.utils").load_mappings("dap")
     end
+  },
+  {
+    "theHamsta/nvim-dap-virtual-text"
   },
   {
     "mfussenegger/nvim-dap-python",
@@ -62,10 +85,11 @@ local plugins = {
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
     end,
+    ft = {"*"}
   },
   {
     'nvimdev/lspsaga.nvim',
-    ft = {"python", "go", "lua"},
+    ft = {"*"},
     config = function()
         require('lspsaga').setup({})
     end,
@@ -77,6 +101,39 @@ local plugins = {
   {
     "tpope/vim-fugitive",
     ft = {"*"},
+  },
+  {
+    'APZelos/blamer.nvim',
+    ft = {"*"}
+  },
+  {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-neotest/neotest-plenary",
+      "nvim-neotest/neotest-python",
+      "nvim-neotest/neotest-vim-test",
+    },
+    config = function ()
+      require('custom.configs.neotest')
+    --   require("neotest").setup({
+    --   -- adapters = {
+    --   --   require("neotest-python")({
+    --   --     runner = "pytest",
+    --   --     dap = { justMyCode = false }
+    --   --   }),
+    --   --   require('neotest-plenary'),
+    --   --   require("neotest-vim-test")({
+    --   --     ignore_file_types = { "python", "vim", "lua" },
+    --   --   }),
+    --   -- }
+    -- })
+    end
+  },
+  {
+    'camgraff/telescope-tmux.nvim'
   }
 }
 

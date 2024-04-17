@@ -10,6 +10,13 @@ lspconfig.pyright.setup({
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = {"python"},
+  settings = {
+    python = {
+      analysis = {
+        typeCheckingMode = "off"
+      },
+    },
+  }
 })
 
 lspconfig.gopls.setup {
@@ -28,3 +35,23 @@ lspconfig.gopls.setup {
     }
   }
 }
+
+lspconfig.yamlls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = {"yaml", "yml"},
+})
+
+lspconfig.terraformls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
+lspconfig.jsonls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = {
+    "json",
+    "*.tfstate",
+  },
+})

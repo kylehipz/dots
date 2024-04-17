@@ -9,6 +9,7 @@ local options = {
       "--line-number",
       "--column",
       "--smart-case",
+      "--hidden",
     },
     prompt_prefix = "   ",
     selection_caret = "  ",

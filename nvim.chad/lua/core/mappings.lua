@@ -31,8 +31,8 @@ M.general = {
     ["<C-c>"] = { "<cmd> %y+ <CR>", "Copy whole file" },
 
     -- line numbers
-    ["<leader>n"] = { "<cmd> set nu! <CR>", "Toggle line number" },
-    ["<leader>rn"] = { "<cmd> set rnu! <CR>", "Toggle relative number" },
+    ["<space>n"] = { "<cmd> set nu! <CR>", "Toggle line number" },
+    ["<space>rn"] = { "<cmd> set rnu! <CR>", "Toggle relative number" },
 
     -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
     -- http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
@@ -44,8 +44,7 @@ M.general = {
     ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
 
     -- new buffer
-    ["<leader>b"] = { "<cmd> enew <CR>", "New buffer" },
-    ["<leader>ch"] = { "<cmd> NvCheatsheet <CR>", "Mapping cheatsheet" },
+    ["<space>ch"] = { "<cmd> NvCheatsheet <CR>", "Mapping cheatsheet" },
 
     -- ["<leader>fm"] = {
     --   function()
@@ -53,6 +52,16 @@ M.general = {
     --   end,
     --   "LSP formatting",
     -- },
+    ["[q"] = {
+      ":cprev<cr>",
+      "Quickfix list previous",
+    },
+
+    ["]q"] = {
+      ":cnext<cr>",
+      "Quickfix list next",
+    },
+
   },
 
   t = {
@@ -157,26 +166,26 @@ M.lspconfig = {
       "LSP implementation",
     },
 
-    ["<leader>ls"] = {
+    ["gls"] = {
       function()
         vim.lsp.buf.signature_help()
       end,
       "LSP signature help",
     },
 
-    ["<leader>D"] = {
-      function()
-        vim.lsp.buf.type_definition()
-      end,
-      "LSP definition type",
-    },
+    -- ["D"] = {
+    --   function()
+    --     vim.lsp.buf.type_definition()
+    --   end,
+    --   "LSP definition type",
+    -- },
 
     ["<space>gr"] = {
       "<cmd> Lspsaga rename<cr>",
       "LSP rename",
     },
 
-    ["<leader>ca"] = {
+    ["<space>ca"] = {
       function()
         vim.lsp.buf.code_action()
       end,
@@ -190,7 +199,7 @@ M.lspconfig = {
       "LSP references",
     },
 
-    ["<leader>lf"] = {
+    ["<space>F"] = {
       function()
         vim.diagnostic.open_float { border = "rounded" }
       end,
@@ -207,28 +216,28 @@ M.lspconfig = {
       "Goto next",
     },
 
-    ["<leader>q"] = {
+    ["<space>q"] = {
       function()
         vim.diagnostic.setloclist()
       end,
       "Diagnostic setloclist",
     },
 
-    ["<leader>wa"] = {
+    ["<space>wa"] = {
       function()
         vim.lsp.buf.add_workspace_folder()
       end,
       "Add workspace folder",
     },
 
-    ["<leader>wr"] = {
+    ["<space>wr"] = {
       function()
         vim.lsp.buf.remove_workspace_folder()
       end,
       "Remove workspace folder",
     },
 
-    ["<leader>wl"] = {
+    ["<space>wl"] = {
       function()
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
       end,
@@ -237,7 +246,7 @@ M.lspconfig = {
   },
 
   v = {
-    ["<leader>ca"] = {
+    ["<space>ca"] = {
       function()
         vim.lsp.buf.code_action()
       end,
@@ -252,9 +261,6 @@ M.nvimtree = {
   n = {
     -- toggle
     ["<space>f"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
-
-    -- focus
-    ["<leader>e"] = { "<cmd> NvimTreeFocus <CR>", "Focus nvimtree" },
   },
 }
 
@@ -263,7 +269,7 @@ M.telescope = {
 
   n = {
     -- find
-    ["<space>p"] = { "<cmd> Telescope find_files <CR>", "Find files" },
+    ["<space>p"] = { "<cmd> Telescope find_files hidden=true<CR>", "Find files" },
     -- ["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all" },
     ["<space>l"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
     -- ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
@@ -273,15 +279,15 @@ M.telescope = {
     -- git
     ["<space>cc"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
     ["<space>cb"] = { "<cmd> Telescope git_branches <CR>", "Git branches" },
-    ["<leader>gt"] = { "<cmd> Telescope git_status <CR>", "Git status" },
+    ["<space>gt"] = { "<cmd> Telescope git_status <CR>", "Git status" },
 
     -- pick a hidden term
-    ["<leader>pt"] = { "<cmd> Telescope terms <CR>", "Pick hidden term" },
+    -- ["<space>pt"] = { "<cmd> Telescope terms <CR>", "Pick hidden term" },
 
     -- theme switcher
-    ["<leader>th"] = { "<cmd> Telescope themes <CR>", "Nvchad themes" },
+    ["<space>h"] = { "<cmd> Telescope themes <CR>", "Nvchad themes" },
 
-    ["<leader>ma"] = { "<cmd> Telescope marks <CR>", "telescope bookmarks" },
+    -- ["<leader>ma"] = { "<cmd> Telescope marks <CR>", "telescope bookmarks" },
   },
 }
 
@@ -335,20 +341,20 @@ M.nvterm = {
       "Toggle vertical term",
     },
 
-    -- new
-    ["<leader>h"] = {
-      function()
-        require("nvterm.terminal").new "horizontal"
-      end,
-      "New horizontal term",
-    },
-
-    ["<leader>v"] = {
-      function()
-        require("nvterm.terminal").new "vertical"
-      end,
-      "New vertical term",
-    },
+    -- -- new
+    -- ["<leader>h"] = {
+    --   function()
+    --     require("nvterm.terminal").new "horizontal"
+    --   end,
+    --   "New horizontal term",
+    -- },
+    --
+    -- ["<leader>v"] = {
+    --   function()
+    --     require("nvterm.terminal").new "vertical"
+    --   end,
+    --   "New vertical term",
+    -- },
   },
 }
 
@@ -428,28 +434,28 @@ M.gitsigns = {
     },
 
     -- Actions
-    ["<leader>rh"] = {
+    ["<space>gR"] = {
       function()
         require("gitsigns").reset_hunk()
       end,
       "Reset hunk",
     },
 
-    ["<leader>gh"] = {
+    ["<space>gh"] = {
       function()
         require("gitsigns").preview_hunk()
       end,
       "Preview hunk",
     },
 
-    ["<leader>gb"] = {
+    ["<space>gb"] = {
       function()
         package.loaded.gitsigns.blame_line()
       end,
       "Blame line",
     },
 
-    ["<leader>td"] = {
+    ["<space>gT"] = {
       function()
         require("gitsigns").toggle_deleted()
       end,
