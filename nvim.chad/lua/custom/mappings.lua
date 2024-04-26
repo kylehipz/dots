@@ -9,7 +9,7 @@ M.dap = {
     ["<space>ds"] = {"<cmd> DapStepInto <CR>"},
     ["<space>df"] = {"<cmd> lua require'dap'.step_back() <CR>"},
     ["<space>do"] = {"<cmd> DapStepOut <CR>"},
-    ["<space>dt"] = {"<cmd> lua require('neotest').run.run({strategy = 'dap'}) <CR>"},
+    -- ["<space>dt"] = {"<cmd> lua require('neotest').run.run({strategy = 'dap'}) <CR>"},
     ["<space>dT"] = {"<cmd> DapTerminate <CR>"},
     ["<space>dl"] = {"<cmd> lua require('dapui').float_element('scopes', {enter=true}) <CR>"},
     ["<space>dw"] = {"<cmd> lua require('dapui').float_element('watches', {enter=true}) <CR>"},
@@ -21,14 +21,25 @@ M.dap = {
   }
 }
 
-M.dap_python = {
+-- M.dap_python = {
+--   plugin = true,
+--   n = {
+--     ["<space>dt"] = {
+--       function()
+--         require('dap-python').test_method()
+--       end
+--     }
+--   }
+-- }
+
+M.dap_go = {
   plugin = true,
   n = {
-    -- ["<space>dt"] = {
-    --   function()
-    --     require('dap-python').test_method()
-    --   end
-    -- }
+    ["<space>dt"] = {
+      function()
+        require('dap-go').debug_test()
+      end
+    }
   }
 }
 

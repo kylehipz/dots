@@ -36,6 +36,11 @@ lspconfig.gopls.setup {
   }
 }
 
+lspconfig.dockerls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
 lspconfig.yamlls.setup({
   on_attach = on_attach,
   capabilities = capabilities,
