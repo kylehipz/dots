@@ -35,6 +35,7 @@ vim.bo.autoindent = true
 vim.o.expandtab = true
 vim.bo.expandtab = true
 vim.o.ignorecase = true
+vim.g.blamer_enabled = true
 vim.cmd[[
 set mmp=5000
 ]]

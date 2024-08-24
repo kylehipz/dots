@@ -50,7 +50,7 @@ local options = {
     },
   },
 
-  extensions_list = { "themes", "terms", "fzf" },
+  extensions_list = { "themes", "terms", "fzf", "git_worktree", "dap" },
   extensions = {
     fzf = {
       fuzzy = true,

@@ -288,6 +288,8 @@ M.telescope = {
     ["<space>h"] = { "<cmd> Telescope themes <CR>", "Nvchad themes" },
 
     -- ["<leader>ma"] = { "<cmd> Telescope marks <CR>", "telescope bookmarks" },
+    ["<space>gw"] = {"<cmd> Telescope git_worktree git_worktrees <CR>"},
+    ["<space>gs"] = {"<cmd> Telescope git_worktree create_git_worktree <CR>"}
   },
 }
 

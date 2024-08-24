@@ -121,6 +121,10 @@ alias t="tmux"
 alias tf="terraform"
 
 alias tx="tmuxinator"
+# alias py="python3"
+# alias python="python3"
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+alias pip=pip3
 
 bindkey -v
 bindkey -s qw '\e'
@@ -208,3 +212,37 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export LD_LIBRARY_PATH=/usr/lib/cuda/lib64:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/lib/cuda/include:$LD_LIBRARY_PATH
 
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+
+autoload -U +X bashcompinit && bashcompinit
+
+
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
+
+
+
+# pnpm
+export PNPM_HOME="/Users/Kyle/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/Kyle/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/Kyle/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/Kyle/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/Kyle/Downloads/google-cloud-sdk/completion.zsh.inc'; fi

@@ -15,13 +15,23 @@ local plugins = {
           {
             elements = {
               {
-                id = "repl",
+                id = "scopes",
                 size = 1.0
               }
             },
             position = "bottom",
-            size = 15
-          }
+            size = 25
+          },
+          {
+            elements = {
+              {
+                id = "watches",
+                size = 1.0
+              }
+            },
+            position = "left",
+            size = 75
+          },
         },
       })
       virtual_text.setup()
@@ -40,8 +50,60 @@ local plugins = {
   {
     "mfussenegger/nvim-dap",
     config = function(_, opts)
+      dap_configs = require("custom.configs.dap")
+      dap_configs.load_debug_config()
+      dap_configs.dap_config()
       require("core.utils").load_mappings("dap")
+    end,
+    tag = "0.7.0",
+    keys = {
+      {
+        "<space>da",
+        function()
+          dap_configs = require("custom.configs.dap")
+          dap_configs.load_debug_config()
+          require('dap').continue()
+        end
+      }
+    },
+    dependencies = {
+      {
+        "microsoft/vscode-js-debug",
+        build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
+      },
+      {
+        "mxsdev/nvim-dap-vscode-js",
+        config = function()
+          require('dap-vscode-js').setup({
+            debugger_path = vim.fn.resolve(vim.fn.stdpath("data") .. "/lazy/vscode-js-debug"),
+            adapters = {"chrome", "pwa-node", "pwa-chrome", "pwa-msedge", "pwa-extensionHost", "node-terminal", "node"}
+          })
+        end
+      },
+      {
+        "Joakker/lua-json5",
+        build = "./install.sh"
+      }
+    },
+    ft={"python", "go", "javascript", "typescript"}
+  },
+  {
+    "mgierada/git-worktree.nvim",
+    config = function(_, opts)
+      local Worktree = require("git-worktree")
+
+      Worktree.setup({})
+
+      Worktree.on_tree_change(function(op, metadata)
+        if op == Worktree.Operations.Switch then
+          vim.fn.system("source $(poetry env info --path)/bin/activate")
+        end
+      end)
     end
+  },
+  {
+    "nvim-telescope/telescope-dap.nvim",
+    ft={"python", "go", "javascript", "typescript"}
   },
   {
     "theHamsta/nvim-dap-virtual-text"
@@ -73,7 +135,7 @@ local plugins = {
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
-    ft = {"python", "go"},
+    ft = {"*"},
     opts = function()
       return require "custom.configs.null-ls"
     end,
@@ -150,5 +212,20 @@ local plugins = {
     'camgraff/telescope-tmux.nvim'
   }
 }
+
+-- Define custom icons for breakpoints
+vim.fn.sign_define('DapBreakpoint', {text='🔴', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapBreakpointCondition', {text='🔵', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapBreakpointRejected', {text='⚫', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapLogPoint', {text='💬', texthl='', linehl='', numhl=''})
+
+-- Define custom icon for the current debugging line with a larger arrow
+vim.fn.sign_define('DapStopped', {text='➤', texthl='DapStoppedText', linehl='DapStoppedLine', numhl=''})
+
+-- Define highlight groups with colors
+vim.cmd [[
+    highlight DapStoppedText guifg=#00FF00
+    highlight DapStoppedLine guibg=#333333
+]]
 
 return plugins

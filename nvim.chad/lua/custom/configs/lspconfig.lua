@@ -19,6 +19,7 @@ lspconfig.pyright.setup({
   }
 })
 
+
 lspconfig.gopls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
@@ -59,4 +60,27 @@ lspconfig.jsonls.setup({
     "json",
     "*.tfstate",
   },
+})
+
+lspconfig.tsserver.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  init_options = {
+    disableSuggestions = true
+  }
+})
+
+-- lspconfig.eslint.setup({
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+-- })
+
+-- lspconfig.prettier.setup({
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+-- })
+
+lspconfig.phpactor.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
 })

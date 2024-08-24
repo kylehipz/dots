@@ -21,16 +21,16 @@ M.dap = {
   }
 }
 
--- M.dap_python = {
---   plugin = true,
---   n = {
---     ["<space>dt"] = {
---       function()
---         require('dap-python').test_method()
---       end
---     }
---   }
--- }
+M.dap_python = {
+  plugin = true,
+  n = {
+    ["<space>dt"] = {
+      function()
+        require('neotest').run.run({strategy = 'dap'})
+      end
+    }
+  }
+}
 
 M.dap_go = {
   plugin = true,
