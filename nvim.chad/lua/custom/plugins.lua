@@ -53,6 +53,9 @@ local plugins = {
       dap_configs = require("custom.configs.dap")
       dap_configs.load_debug_config()
       dap_configs.dap_config()
+
+
+      require('dap').set_log_level('DEBUG')
       require("core.utils").load_mappings("dap")
     end,
     tag = "0.7.0",
@@ -85,7 +88,7 @@ local plugins = {
         build = "./install.sh"
       }
     },
-    ft={"python", "go", "javascript", "typescript"}
+    ft={"python", "go", "javascript", "typescript", "php"}
   },
   {
     "mgierada/git-worktree.nvim",
@@ -103,7 +106,7 @@ local plugins = {
   },
   {
     "nvim-telescope/telescope-dap.nvim",
-    ft={"python", "go", "javascript", "typescript"}
+    ft={"python", "go", "javascript", "typescript", "php"}
   },
   {
     "theHamsta/nvim-dap-virtual-text"
@@ -215,6 +218,7 @@ local plugins = {
 
 -- Define custom icons for breakpoints
 vim.fn.sign_define('DapBreakpoint', {text='🔴', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapStopped', { text='', texthl='DapStopped', linehl='DapStopped', numhl= 'DapStopped' })
 vim.fn.sign_define('DapBreakpointCondition', {text='🔵', texthl='', linehl='', numhl=''})
 vim.fn.sign_define('DapBreakpointRejected', {text='⚫', texthl='', linehl='', numhl=''})
 vim.fn.sign_define('DapLogPoint', {text='💬', texthl='', linehl='', numhl=''})

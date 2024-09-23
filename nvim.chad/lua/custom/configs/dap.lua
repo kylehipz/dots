@@ -11,6 +11,33 @@ local M = {}
 function M.dap_config()
   local dap = require("dap")
 
+  dap.adapters.php = {
+    type = "executable",
+    command = "node",
+    args = { os.getenv("HOME") .. "/vscode-php-debug/out/phpDebug.js" }
+  }
+
+  dap.configurations.php = {
+      {
+          type = "php",
+          request = "launch",
+          name = "Launch current file",
+          port = 9003,
+          cwd = "${workspaceFolder}",
+        program = "${file}",
+        runtimeExecutable = "php"
+      },
+      {
+          type = "php",
+          request = "launch",
+          name = "Listen for Xdebug",
+          port = 9003,
+          pathMappings = {
+            ["/media/psf/bitdefender/console"] = os.getenv("HOME") .. "/projects/bitdefender/console"
+          }
+      }
+  }
+
   for _, language in ipairs(js_based_languages) do
     dap.configurations[language] = {
       -- Debug single nodejs files
@@ -39,11 +66,16 @@ function M.dap_config()
       },
     }
   end
+
+
+  -- PHP
+
 end
 
 function M.load_debug_config()
+    local dap_vscode = require("dap.ext.vscode")
+
     if vim.fn.filereadable(".vscode/launch.json") then
-      local dap_vscode = require("dap.ext.vscode")
 
       dap_vscode.load_launchjs(nil, {
         ["pwa-node"] = js_based_languages,
@@ -52,6 +84,10 @@ function M.load_debug_config()
         ["pwa-chrome"] = js_based_languages,
       })
     end
+
+    -- dap_vscode.load_launchjs(nil, {
+    --   ["php"] = {"php"}
+    -- })
 end
 
 return M
