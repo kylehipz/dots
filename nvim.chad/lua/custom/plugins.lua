@@ -5,6 +5,7 @@ local plugins = {
       "mfussenegger/nvim-dap",
       "theHamsta/nvim-dap-virtual-text"
     },
+    ft = {"*"},
     config = function()
       local dap = require("dap")
       local dapui = require("dapui")
@@ -21,17 +22,7 @@ local plugins = {
             },
             position = "bottom",
             size = 25
-          },
-          {
-            elements = {
-              {
-                id = "watches",
-                size = 1.0
-              }
-            },
-            position = "left",
-            size = 75
-          },
+          }
         },
       })
       virtual_text.setup()

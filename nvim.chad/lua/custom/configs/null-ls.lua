@@ -6,8 +6,10 @@ local opts = {
     null_ls.builtins.formatting.black.with({
       extra_args={"--line-length=79"}
     }),
-    -- null_ls.builtins.diagnostics.mypy,
-    -- null_ls.builtins.diagnostics.ruff,
+    null_ls.builtins.diagnostics.mypy.with({
+      command = vim.fn.getcwd() .. ".venv/bin/mypy"
+    }),
+    null_ls.builtins.diagnostics.ruff,
     null_ls.builtins.diagnostics.flake8,
     null_ls.builtins.formatting.gofumpt,
     null_ls.builtins.formatting.goimports_reviser,
